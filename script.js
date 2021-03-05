@@ -17,13 +17,32 @@ function writePassword() {
 
 // Add event listener to generate button
 
-function myFunction() {
-    var txt;
-    var number = prompt("Please Enter # of Characters (Must be 8 or more)");
-    if (number > 8) {
-        
-    }
-}
-
 generateBtn.addEventListener("click", writePassword);
 
+function myFunction() {
+    var txt;
+    var number = window.prompt("Please Enter # of Characters (Must be 8 or more)");
+    if (!number) {
+      return;
+    }
+
+    if (number >= 8 && number <=128);
+    var lowercasesuser = window.prompt("Would you like to include lowercase letters? (yes/no)");
+    if (!lowercasesuser) {
+      return
+    }
+
+    if (lowercasesuser === "yes");
+    var uppercaseuser = window.prompt("Would you like to include upercase letters? (yes/no)");
+    if (!uppercaseuser) {
+      return
+    }
+
+    if (uppercaseuser === "yes");
+    var symbolsuser = window.prompt("Would you like to include special characters? (yes/no)")
+    if (!symbolsuser) {
+      return
+    }
+
+
+  }
