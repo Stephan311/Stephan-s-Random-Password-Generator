@@ -1,27 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// set variables for user actions 
 var enter;
 var choosenumber;
 var choosesymbols;
 var chooseuppercase;
 var chooselowercase;
 
+//set variables for password variables
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var lowercase = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
 var symbols = ["±", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", "§", "£", "™", "¡", "¢", "∞", "§", "¶", "•", "ª", "º", "–", "≠"];
 
+//variable for what choices the users picks in the program, what he/she wants to include in the program
 var choice;
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
 
 // Add event listener to generate button
 
@@ -91,8 +85,40 @@ generateBtn.addEventListener("click", writePassword);
       //conditions for 1 option picked
 
       else if (choosenumber) {
-        choice = 
+        choice = numbers;
       }
+      else if (choosesymbols) {
+        choice = symbols;
+      }
+      else if (chooseuppercase) {
+        choice = uppercase;
+      }
+      else if (chooselowercase) {
+        choice = lowercase;
+      };
+
+      //password variable created as an array to store the multiple other variables of symbols, letters, and numbers
+      var password = [];
+
+      //the random selection of password characters, numbers, and symbols
+
+      for (var i = 0; i < enter; i++) {
+        var selectchoices = choice[Math.floor(Math.random() * choice.length)];
+        password.push(selectchoices);
+      }
+
+      //Converts and joins the password array into a string (this was researched)
+
+      var visiblepasword = password.join("");
+      UserInput(visiblepasword);
+      return visiblepasword;
 }
 
+// Write password to the #password input
+function writePassword(visiblepasword) {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
+  passwordText.value = password;
+
+}
