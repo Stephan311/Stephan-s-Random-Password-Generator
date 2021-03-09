@@ -19,7 +19,7 @@ var choice;
 
 // Add event listener to generate button
 
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 
 
     function generatePassword() {
@@ -110,15 +110,11 @@ generateBtn.addEventListener("click", writePassword);
       //Converts and joins the password array into a string (this was researched)
 
       var visiblepasword = password.join("");
-      UserInput(visiblepasword);
+      writePassword(visiblepasword);
       return visiblepasword;
 }
 
 // Write password to the #password input
 function writePassword(visiblepasword) {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  document.getElementById("password").value = visiblepasword;
 }
